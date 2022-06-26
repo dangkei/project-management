@@ -1,0 +1,3 @@
+com\bgp\common\annotation\Table.class
+com\bgp\common\page\DataTable.class
+com\bgp\common\annotation\Column.class

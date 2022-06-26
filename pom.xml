@@ -10,6 +10,7 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.4.1</version>
+    <relativePath>.</relativePath>
   </parent>
   
   <properties>
@@ -21,6 +22,7 @@
 
   <modules>
       	<module>project-service</module>
+      	<module>project-common</module>
   </modules>
   
   <dependencyManagement>
