@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
+import com.bgp.common.page.DataTable;
 import com.bgp.project.bean.Project;
 import com.bgp.project.service.ProjectService;
 
@@ -18,7 +19,7 @@ import com.bgp.project.service.ProjectService;
 
  */
 @RestController
-@RequestMapping("/projet")
+@RequestMapping("/project")
 public class ProjectController {
 		
 	@Autowired 
@@ -28,13 +29,18 @@ public class ProjectController {
 	public String create(String info) {
 		
 		Project entity = new Project();
-		entity = (Project)JSONObject.parseObject(info,entity.getClass());
-		
-		return "";
+		entity = JSONObject.parseObject(info,entity.getClass());
+		projectService.insert(entity);
+		return "ok";
 	}
 	
 	@RequestMapping("/list")
 	public List<Project> listAll(){
 		return projectService.list();
+	}
+	
+	@RequestMapping("/getProjectListByPage")
+	public DataTable getProjectListByPage(int page,int limit) {
+		return projectService.getProjectListByPage(page, limit);
 	}
 }

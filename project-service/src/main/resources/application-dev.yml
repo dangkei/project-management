@@ -22,5 +22,6 @@ spring:
 server:
   port: 8081
 mybatis-plus:
+  type-enums-package: com.bgp.project.enums
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

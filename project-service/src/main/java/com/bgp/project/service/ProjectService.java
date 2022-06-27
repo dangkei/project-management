@@ -22,8 +22,8 @@ public class ProjectService extends ServiceImpl<ProjectMapper,Project>{
 	@Autowired
 	ProjectMapper projectMapper;
 	
-	public int insert(Project report) {
-		return projectMapper.insert(report);
+	public int insert(Project project) {
+		return projectMapper.insert(project);
 	}
 	
 	public int deleteBatch(String ids) {
@@ -41,7 +41,7 @@ public class ProjectService extends ServiceImpl<ProjectMapper,Project>{
 	}
 	
 	public List<Project> getProjectList(int page,int limit){
-		return null;  //projectMapper.();
+		return projectMapper.selectList(null);
 	}
 	
 	public DataTable getProjectListByPage(int page,int limit){
