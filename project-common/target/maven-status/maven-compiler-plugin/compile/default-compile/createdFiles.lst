@@ -1,3 +1,4 @@
-com\bgp\common\annotation\Table.class
-com\bgp\common\page\DataTable.class
 com\bgp\common\annotation\Column.class
+com\bgp\common\annotation\Table.class
+com\bgp\common\entity\BaseEntity.class
+com\bgp\common\page\DataTable.class
