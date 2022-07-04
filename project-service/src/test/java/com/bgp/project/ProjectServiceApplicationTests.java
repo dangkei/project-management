@@ -1,6 +1,6 @@
 package com.bgp.project;
 
-import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.bgp.project.bean.Project;
 import com.bgp.project.mapper.ProjectMapper;
 
@@ -20,11 +22,17 @@ class ProjectServiceApplicationTests {
 
     @Test
     void contextLoads() {
-        System.out.println(("----- selectAll method test 测试查询所有用户方法 ------"));
-        //selectList 的参数wrapper 是条件构造器，可以先写null
-        List<Project> userList = projectMapper.selectList(null);
-        //forEach 的参数是 Consumer类型的 语法糖
-        userList.forEach(System.out::println);
+    	QueryWrapper<Project> condition = new QueryWrapper<>();
+    	condition.isNotNull("id");//设置一个查询条件，如果不设置返回all
+    	
+    	//1.返回一个Map类型
+    	Page<Map<String,Object>> page = new Page<>(1, 4);
+    	projectMapper.selectMapsPage(page, condition);
+    	projectMapper.selectMapsPage(page, null);
+
+    	//2. 返回一个Page封装的实体类列表
+    	Page<Project> page2 = new Page<>(1, 4);
+    	Page<Project> result = projectMapper.selectPage(page2, condition);
 
     }
 
