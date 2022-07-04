@@ -11,7 +11,7 @@ public class DataTable {
 	
 	int code;
 	String msg;
-	int count;
+	long count;
 	Object[] data;
 
 	/**
@@ -52,14 +52,14 @@ public class DataTable {
 	/**
 	 * @return the count
 	 */
-	public int getCount() {
+	public long getCount() {
 		return count;
 	}
 
 	/**
 	 * @param count the count to set
 	 */
-	public void setCount(int count) {
+	public void setCount(long count) {
 		this.count = count;
 	}
 

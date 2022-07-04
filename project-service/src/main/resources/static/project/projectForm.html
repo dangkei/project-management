@@ -21,7 +21,7 @@
 <div class="layui-form">
 <form class="layui-form layui-form-pane" action="" lay-filter="projectForm">
   <div class="layui-form-item">
-	<!--  <input type="hidded" name="id" autocomplete="off" class="layui-input">-->
+	<input type="hidded" name="id" autocomplete="off" class="layui-input">
   	<div class="layui-inline">
       <label class="layui-form-label">项目名称</label>
       <div class="layui-input-inline">
@@ -94,11 +94,22 @@
         <input type="text" name="dimension" autocomplete="off" class="layui-input">
       </div>
     </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">项目状态</label>
+      <div class="layui-input-inline">
+        <select name="projectStatus" lay-filter="aihao">
+        <option value=""></option>
+        <option value="项目立项" selected>项目立项</option>
+        <option value="正在施工" >正在施工</option>
+        <option value="项目结束" >项目结束</option>
+      </select>
+      </div>
+    </div>
   </div>
   <div class="layui-form-item">
     <div class="layui-input-block">
       <!--<button type="button" class="layui-btn layui-btn-normal" id="LAY-component-form-setval">赋值</button>-->
-      <button type="button" style="display:none" class="layui-btn layui-btn-normal" id="LAY-component-form-setval">保存</button>
+      <button type="submit" style="display:none" lay-submit="" class="layui-btn layui-btn-normal" id="LAY-component-form-setval"  lay-filter="saveBtn">保存</button>
       <button type="submit" class="layui-btn" lay-submit="" id="LAY-component-form-submit" lay-filter="demo1">创建立项</button>
     </div>
   </div>
@@ -144,6 +155,41 @@
     //layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
   });
   
+  
+  //提交事件
+  form.on('submit(saveBtn)', function(data){
+		/*layer.alert(JSON.stringify(data.field), {
+      		title: '最终的提交信息'
+    	})*/
+		var url= "/project/update";
+		var obj={};
+		//data.field.id = null;
+		obj.info = JSON.stringify(data.field);
+		//layer.msg(obj.info);
+		$.post(url,obj,function(msg){
+			if(msg=="ok"){
+				layer.confirm('保存成功！', {
+					  btn: ['确认'] //按钮
+					}, function(){
+						parent.layer.closeAll();
+						return true;
+					},function(){
+						parent.layer.closeAll();
+					});
+			}else{
+				debugger
+				layer.confirm('操作失败！', {
+					  btn: ['确认'] //按钮
+					}, function(){
+						layer.closeAll();
+					});
+			}
+		});
+		
+		
+    return false;
+  });
+ 
   //提交事件
   form.on('submit(demo1)', function(data){
 		/*layer.alert(JSON.stringify(data.field), {
@@ -153,9 +199,7 @@
 		var obj={};
 		//data.field.id = null;
 		obj.info = JSON.stringify(data.field);
-		debugger
 		//layer.msg(obj.info);
-		console.log(obj.info);
 		$.post(url,obj,function(msg){
 			if(msg=="ok"){
 				layer.confirm('立项成功！', {
@@ -189,12 +233,12 @@
   
   var getFormData =  function(id,callback){
 	  var url= "/project/selectOne";
-	  console.log(callback);
+	  //console.log(callback);
 	  //alert(typeof(callback));
 	  var obj={};
 	  obj.id = id;
 	  $.post(url,obj,function(data){
-			if(typeof(callback)==Function){
+			if(typeof(callback)=="function"||typeof(callback)==Function){
 				callback('projectForm',data);
 			}
 			return data;
@@ -207,7 +251,7 @@
 	  var obj={};
 	  obj.id = id;
 	  $.post(url,obj,function(data){
-			if(typeof(callback)==Function){
+			if(typeof(callback)=="function"||callback==Function){
 				callback('projectForm',data);
 			}
 			return data;
@@ -216,7 +260,7 @@
   }
   
   var setFormData = function(formName,data){
-	form.val(formName,data);
+	  form.val(formName,data);
   }
   
   var action = getQueryString("action");

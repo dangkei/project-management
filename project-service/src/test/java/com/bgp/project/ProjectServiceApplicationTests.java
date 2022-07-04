@@ -3,12 +3,15 @@ package com.bgp.project;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.bgp.project.bean.Project;
 import com.bgp.project.mapper.ProjectMapper;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
 class ProjectServiceApplicationTests {
 	
