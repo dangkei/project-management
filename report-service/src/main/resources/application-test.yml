@@ -1,0 +1,35 @@
+spring: 
+  application:  
+    name: DailyReport
+  datasource: 
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+    name: defaultDataSource                           # 数据源名称
+    url:  jdbc:mysql://localhost:3306/dailyreport?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC # 数据库连接地址
+    username: root     #     数据库用户名&密码：
+    password: 123456
+  thymeleaf:  
+    cache:  true
+    check-template: true
+    check-template-location:  true
+    servlet:
+      content-type:  text/html
+    enabled: true
+    encoding: UTF-8
+    excluded-view-names:     # 要被排除在解析之外的视图名称列表，⽤逗号分隔
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+
+# 应用服务 WEB 访问端口
+server: 
+  port: 8080
+
+
+#下面这些内容是为了让MyBatis映射
+#指定Mybatis的Mapper文件
+mybatis:  
+  mapper-locations: classpath:mappers/*xml
+  type-aliases-package: com.bgp.report.entity  #指定Mybatis的实体目录
+
+  
+

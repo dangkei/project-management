@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bgp.report.mapper.DailyReportMapper">
+ 
+    <resultMap id="BaseResultMap" type="com.bgp.report.entity.DailyReport">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="report_date" jdbcType="VARCHAR" property="reportDate" />
+        <result column="sqkm" jdbcType="VARCHAR" property="sqkm" />
+        <result column="sqkm_week" jdbcType="VARCHAR"  property="sqkmWeek" />
+        <result column="dt_time" jdbcType="VARCHAR" property="dtTime" />
+        <result column="pay_sb" jdbcType="VARCHAR" property="paySB" />
+        <result column="nopay_sb" jdbcType="VARCHAR" property="noPaySB" />
+        <result column="capture_time" jdbcType="VARCHAR" property="captureTime" />
+        <result column="daily_in" jdbcType="VARCHAR" property="dailyIn" />
+        <result column="weekly_in" jdbcType="VARCHAR" property="weeklyIn" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+    </resultMap>
+    <!--
+      select:标签名字:  CRUD的时候对应的名字
+      id:这个语句的唯一标识;   【必须和接口的方法名字一样】;
+      parameterType:传入参数类型
+      resultType:返回值类型
+      resultMap: 返回值映射配置的id= 参数值
+      #{id}:参数的接收
+      collection=""  遍历集合
+      index=""  遍历时候的索引
+      item=""   每此遍历得到的对象
+      open=""   以什么开始
+      close=""  以什么结束
+      separator="" 以什么作为分割符
+    -->
+    <insert id="insert">
+    	INSERT INTO tb_DailyReport (<include refid="columns"></include>)
+    VALUES (null,#{reportDate}, #{sqkm}, #{sqkmWeek}, #{dtTime}, #{paySB}, #{noPaySB}, #{captureTime}, #{dailyIn}, #{weeklyIn}, #{remark})
+    </insert>
+    <!-- 删除操作 多条--> 
+    <delete id="deleteBatch" >
+    	delete from tb_DailyReport where id in (${value})
+    </delete>
+    
+    <update id="updateOne" parameterType="com.bgp.report.entity.DailyReport" >
+    	update tb_DailyReport
+    </update>
+    
+    <select id="selectOne" parameterType="int"  resultMap="BaseResultMap" >
+    	select * from tb_DailyReport where id = #{id}
+    </select>
+	
+	<select id="getReportList" resultType="com.bgp.report.entity.DailyReport">
+        select <include refid="columns"></include> from tb_DailyReport 
+    </select>
+    
+    <select id="count" parameterType="com.bgp.report.entity.DailyReport" resultType="Integer" >
+        select count(*) from tb_DailyReport 
+        <where>
+    	<if test="reportDate != null and !&quot;&quot;.equals(reportDate.trim())">
+	    	and report_Date = '#{reportDate}'
+	    </if>
+	    <if test="sqkm != null and !&quot;&quot;.equals(sqkm.trim())">
+	    	and sqkm =  '#{sqkm}'
+	    </if>
+    </where>
+    </select>
+    
+    <select id="getReportListByPage" parameterType="java.util.Map" resultMap="BaseResultMap" >
+        select * from tb_DailyReport 
+    </select>
+    
+    <sql id="columns">id, report_date, sqkm, sqkm_week, dt_time,pay_sb,nopay_sb,capture_time,daily_in,weekly_in,remark</sql>
+    
+</mapper>

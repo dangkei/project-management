@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>日报查询</title>
+  <title>项目列表</title>
   <link href="/js/layui/css/layui.css" rel="stylesheet">
   <script type="text/javascript" src="/js/jquery/jquery.js"></script>
   <script type="text/javascript" src="/js/json2.js"></script>
@@ -24,19 +24,28 @@
 </script>
 <script type="text/html" id="toolbarDemo">
   <div class="layui-btn-container">
-    <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+    <!--<button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
     <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
-    <!--<button class="layui-btn layui-btn-sm" lay-event="update">编辑</button>-->
+    <button class="layui-btn layui-btn-sm" lay-event="update">编辑</button>-->
   </div>
 </script>
  
-
-
-
-
   
 <script src="/js/layui/layui.js"></script>
 <script>
+
+var header = [ //表头
+	//{type: 'checkbox', fixed: 'left'}
+    {field: 'id', title: 'ID', width:50, sort: false, fixed: 'left', totalRowText: '合计：'}
+    ,{field: 'projectName', title: '项目名称', width:250}
+    ,{field: 'projectStatus', title: '项目状态', width:120, sort: true, totalRow: true}
+    ,{field: 'teamName', title: '施工队伍', width:120, totalRow: true}
+    ,{field: 'clientName', title: '甲方单位', width:280, totalRow: true}
+    ,{field: 'planedStartDate', title: '计划开始时间', width:180, totalRow: true}
+    ,{field: 'planedEndDate', title: '计划结束时间', width:180, totalRow: true}
+    ,{fixed: 'right', width: 150, align:'center', toolbar: '#barDemo'}
+];
+
 //加载模块  
 layui.use(function(){ //亦可加载特定模块：layui.use(['layer','laydate'], callback)
   //得到需要的内置组件
@@ -65,21 +74,7 @@ layui.use(function(){ //亦可加载特定模块：layui.use(['layer','laydate']
 	    ,page: true //开启分页
 	    ,toolbar: '#toolbarDemo' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
 	    ,totalRow: false //开启合计行
-	    ,cols: [[ //表头
-	      {type: 'checkbox', fixed: 'left'}
-	      ,{field: 'id', title: 'ID', width:50, sort: false, fixed: 'left', totalRowText: '合计：'}
-	      ,{field: 'reportDate', title: '报告日期', width:120}
-	      ,{field: 'sqkm', title: '产量', width:80, sort: true, totalRow: true}
-	      ,{field: 'sqkmWeek', title: '周产量', width:80, totalRow: true}
-	      ,{field: 'dtTime', title: 'DT时间', width:80, totalRow: true}
-	      ,{field: 'paySB', title: '付费SB', width:80, totalRow: true}
-	      ,{field: 'noPaySB', title: '非付费SB', width:95, totalRow: true}
-	      ,{field: 'captureTime', title: '采集时间', width:90, totalRow: true}
-	      ,{field: 'dailyIn', title: '日入', width:80, totalRow: true}
-	      ,{field: 'weeklyIn', title: '周入', width:80, totalRow: true}
-	      ,{field: 'remark', title: '备注', width:180, totalRow: true}
-	      ,{fixed: 'right', width: 150, align:'center', toolbar: '#barDemo'}
-	    ]]
+	    ,cols: [header]
 	  });
  // setInterval(function(){
 //	  freshTable()}, 60000);
@@ -200,21 +195,7 @@ layui.use(function(){ //亦可加载特定模块：layui.use(['layer','laydate']
 	    ,page: true //开启分页
 	    ,toolbar: '#toolbarDemo' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
 	    ,totalRow: false //开启合计行
-	    ,cols: [[ //表头
-	      {type: 'checkbox', fixed: 'left'}
-	      ,{field: 'id', title: 'ID', width:50, sort: false, fixed: 'left', totalRowText: '合计：'}
-	      ,{field: 'reportDate', title: '报告日期', width:120}
-	      ,{field: 'sqkm', title: '产量', width:80, sort: true, totalRow: true}
-	      ,{field: 'sqkmWeek', title: '周产量', width:80, totalRow: true}
-	      ,{field: 'dtTime', title: 'DT时间', width:80, totalRow: true}
-	      ,{field: 'paySB', title: '付费SB', width:80, totalRow: true}
-	      ,{field: 'noPaySB', title: '非付费SB', width:95, totalRow: true}
-	      ,{field: 'captureTime', title: '采集时间', width:90, totalRow: true}
-	      ,{field: 'dailyIn', title: '日入', width:80, totalRow: true}
-	      ,{field: 'weeklyIn', title: '周入', width:80, totalRow: true}
-	      ,{field: 'remark', title: '备注', width:180, totalRow: true}
-	      ,{fixed: 'right', width: 150, align:'center', toolbar: '#barDemo'}
-	    ]]
+	    ,cols: [header]
 	  });
   }
   var openForm = function(url){

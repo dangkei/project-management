@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="layui-inline">
-      <label class="layui-form-label">开工日期</label>
+      <label class="layui-form-label">计划开工日期</label>
       <div class="layui-input-block">
         <input type="text" name="planedStartDate" id="planedStartDate" autocomplete="off" class="layui-input">
       </div>
@@ -45,7 +45,13 @@
     <div class="layui-inline">
       <label class="layui-form-label">施工方式</label>
       <div class="layui-input-inline">
-        <input type="text" name="constructionMethod" autocomplete="off" class="layui-input">
+      <select name="constructionMethod" lay-filter="constructionMethod">
+        <option value=""></option>
+        <option value="拖缆" selected>拖缆</option>
+        <option value="陆地" >陆地</option>
+        <option value="TZ" >TZ</option>
+        <option value="OBS" >OBS</option>
+      </select>
       </div>
     </div>
     <div class="layui-inline">
@@ -55,7 +61,7 @@
       </div>
     </div>
     <div class="layui-inline">
-      <label class="layui-form-label">完工日期</label>
+      <label class="layui-form-label">计划完工日期</label>
       <div class="layui-input-block">
         <input type="text" name="planedEndDate" id="planedEndDate" autocomplete="off" class="layui-input">
       </div>
@@ -66,6 +72,11 @@
       <label class="layui-form-label">勘探方法</label>
       <div class="layui-input-inline">
         <input type="text" name="explorationMethod" autocomplete="off" class="layui-input">
+        <select name="constructionMethod" lay-filter="constructionMethod">
+        <option value=""></option>
+        <option value="二维" selected>二维</option>
+        <option value="三维" >三维</option>
+        </select>
       </div>
     </div>
     <div class="layui-inline">

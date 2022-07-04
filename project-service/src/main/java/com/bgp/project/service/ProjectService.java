@@ -15,7 +15,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.bgp.common.page.DataTable;
-import com.bgp.project.bean.Project;
+import com.bgp.project.entity.Project;
 import com.bgp.project.mapper.ProjectMapper;
 
 /**

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.bgp.common.page.DataTable;
-import com.bgp.project.bean.Project;
+import com.bgp.project.entity.Project;
 import com.bgp.project.service.ProjectService;
 
 /**

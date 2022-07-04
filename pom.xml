@@ -21,8 +21,9 @@
   </properties>
 
   <modules>
-      	<module>project-service</module>
-      	<module>project-common</module>
+	 <module>project-common</module>
+     <module>project-service</module>
+     <module>report-service</module>
   </modules>
   
   <dependencyManagement>
@@ -107,4 +108,10 @@
 	</pluginRepositories>
   
   
+    <dependencies>
+    	<dependency>
+    		<groupId>junit</groupId>
+    		<artifactId>junit</artifactId>
+    		</dependency>
+    </dependencies>
 </project>
