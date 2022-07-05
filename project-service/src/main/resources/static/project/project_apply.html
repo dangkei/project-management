@@ -191,13 +191,13 @@ layui.use(function(){ //亦可加载特定模块：layui.use(['layer','laydate']
 	  });
   }
   var openForm = function(url){
-      window.parent.layer.open({
+     var index = window.layer.open({
        	  offset: 'auto'
     	  ,type: 2
     	  ,title: ''
     	  ,shadeClose: true
     	  ,shade: false
-    	  ,maxmin: false//开启最大化最小化按钮
+    	  ,maxmin: true//开启最大化最小化按钮
     	  ,area: area
     	  ,content: url //'/report/reportForm.html'
     	  ,end : function() {
@@ -206,6 +206,7 @@ layui.use(function(){ //亦可加载特定模块：layui.use(['layer','laydate']
     		}
     	  //,btn: ['确定录入', '关闭']
     	});
+    layer.full(index);
   }
 });
 </script>

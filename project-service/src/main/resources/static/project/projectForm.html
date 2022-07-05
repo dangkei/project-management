@@ -11,13 +11,22 @@
   <script type="text/javascript" src="/js/jquery/jquery.js"></script>
   <script type="text/javascript" src="/js/json2.js"></script>
   <script type="text/javascript" src="/js/util.js"></script>
+  <style>
+  .layui-form-pane .layui-form-label {
+    width: 170px;
+    left: -1px;
+	}
+	  .layui-form-pane .layui-input-block {
+    margin-left: 180px;
+    left: -1px;
+	}
+  </style>
 </head>
 <body>
              
 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 5px;">
   <legend>项目基本信息</legend>
 </fieldset>
- 
 <div class="layui-form">
 <form class="layui-form layui-form-pane" action="" lay-filter="projectForm">
   <div class="layui-form-item">
@@ -36,7 +45,7 @@
     </div>
     <div class="layui-inline">
       <label class="layui-form-label">计划开工日期</label>
-      <div class="layui-input-block">
+      <div class="layui-input-inline">
         <input type="text" name="planedStartDate" id="planedStartDate" autocomplete="off" class="layui-input">
       </div>
     </div> 
@@ -62,7 +71,7 @@
     </div>
     <div class="layui-inline">
       <label class="layui-form-label">计划完工日期</label>
-      <div class="layui-input-block">
+      <div class="layui-input-inline">
         <input type="text" name="planedEndDate" id="planedEndDate" autocomplete="off" class="layui-input">
       </div>
     </div>
@@ -71,8 +80,7 @@
   	<div class="layui-inline">
       <label class="layui-form-label">勘探方法</label>
       <div class="layui-input-inline">
-        <input type="text" name="explorationMethod" autocomplete="off" class="layui-input">
-        <select name="constructionMethod" lay-filter="constructionMethod">
+        <select name="explorationMethod" lay-filter="explorationMethod">
         <option value=""></option>
         <option value="二维" selected>二维</option>
         <option value="三维" >三维</option>
@@ -117,14 +125,96 @@
       </div>
     </div>
   </div>
+</form>
+</div>
+<!-----------------------------工作量部分---------------------------------------------------------------------------------->
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 5px;">
+  <legend>项目工作量</legend>
+</fieldset>
+<div class="layui-form">
+<form class="layui-form layui-form-pane" action="" lay-filter="workloadForm">
   <div class="layui-form-item">
+	<input type="hidded" name="id" autocomplete="off" class="layui-input">
+  	<div class="layui-inline">
+      <label class="layui-form-label">设计测线条数</label>
+      <div class="layui-input-inline">
+        <input type="text" name="design_test_line_number" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">设计满覆盖工作量</label>
+      <div class="layui-input-inline">
+        <input type="text" name="design_full_coverage_workload" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">设计资料长度</label>
+      <div class="layui-input-inline">
+        <input type="text" name="length_of_design_data" id="length_of_design_data" autocomplete="off" class="layui-input">
+      </div>
+    </div> 
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-inline">
+      <label class="layui-form-label">设计施工长度</label>
+      <div class="layui-input-inline">
+      	<input type="text" name="length_of_design_construction" id="length_of_design_construction" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">设计检波点数</label>
+      <div class="layui-input-inline">
+        <input type="text" name="design_detection_points" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    
+  </div>
+  <div class="layui-form-item">
+  	<div class="layui-inline">
+      <label class="layui-form-label">设计线束数</label>
+      <div class="layui-input-inline">
+        <input type="text" name="design_harness_numner" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+  	<div class="layui-inline">
+      <label class="layui-form-label">设计满覆盖工作面积</label>
+      <div class="layui-input-inline">
+        <input type="text" name="design_full_coverage_area"  autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    
+    <div class="layui-inline">
+      <label class="layui-form-label">设计资料面积</label>
+      <div class="layui-input-inline">
+        <input type="text" name="design_data_area" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-inline">
+      <label class="layui-form-label">设计施工面积</label>
+      <div class="layui-input-inline">
+        <input type="text" name="design_construction_area" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">设计接收点总数</label>
+      <div class="layui-input-inline">
+        <input type="text" name="design_total_receiving_points" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    
+  </div>
+</form>
+</div>
+
+
+<div class="layui-form-item">
     <div class="layui-input-block">
       <!--<button type="button" class="layui-btn layui-btn-normal" id="LAY-component-form-setval">赋值</button>-->
       <button type="submit" style="display:none" lay-submit="" class="layui-btn layui-btn-normal" id="LAY-component-form-setval"  lay-filter="saveBtn">保存</button>
       <button type="submit" class="layui-btn" lay-submit="" id="LAY-component-form-submit" lay-filter="demo1">创建立项</button>
     </div>
-  </div>
-</form>
 </div>
 
 <!-- 注意：项目正式环境请勿引用该地址 -->
@@ -289,7 +379,7 @@
     form.val('projectForm', {
       "projectName": '南非二维拖缆采集 2022 2D 29800 Km' // "name": "value"
       ,"constructionMethod": "拖缆"
-      ,"explorationMethod": '四维'
+      ,"explorationMethod": '二维'
       ,"teamName": 'BGP Pioneer' //复选框选中状态
       ,"country": '南非' //开关状态
       ,"clientName": 'SEARCHER SEISMIC'
@@ -297,7 +387,7 @@
       ,"dimension": 216.8759876
       ,"planedStartDate": '2022-01-03'
       ,"planedEndDate": "2022-05-31"
-   	  ,"iskeyProgram": "SB Debris 导致漏气"
+   	  ,"keyProgram": "是"
     });
   }
   
