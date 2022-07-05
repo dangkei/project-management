@@ -205,6 +205,32 @@
     </div>
     
   </div>
+  <div class="layui-form-item">
+    <div class="layui-inline">
+      <label class="layui-form-label">设计总炮术</label>
+      <div class="layui-input-inline">
+        <input type="text" name="total_desigin_total_shots" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">气枪炮术</label>
+      <div class="layui-input-inline">
+        <input type="text" name="total_air_gun_shots" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">并炮炮术</label>
+      <div class="layui-input-inline">
+        <input type="text" name="total_doub_gun_shots" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-inline">
+      <label class="layui-form-label">震源炮术</label>
+      <div class="layui-input-inline">
+        <input type="text" name="total_source_gun_shots" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+  </div>
 </form>
 </div>
 
@@ -258,10 +284,13 @@
   
   
   //提交事件
-  form.on('submit(saveBtn)', function(data){
-		/*layer.alert(JSON.stringify(data.field), {
+  // form.on('submit(saveBtn)', function(data){
+  layui.$('#LAY-component-form-setval').on('click', function(data){
+   	    var data = form.val('workloadForm');
+	    alert(JSON.stringify(data));
+		layer.alert(JSON.stringify(data.field), {
       		title: '最终的提交信息'
-    	})*/
+    	})
 		var url= "/project/update";
 		var obj={};
 		//data.field.id = null;
@@ -328,7 +357,7 @@
   //});
   //表单取值
   layui.$('#LAY-component-form-getval').on('click', function(){
-    var data = form.val('example');
+    var data = form.val('projectForm');
     alert(JSON.stringify(data));
   });
   
