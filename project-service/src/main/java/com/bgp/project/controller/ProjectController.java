@@ -30,11 +30,11 @@ public class ProjectController {
 	WorkLoadService workLoadService;
 	
 	@RequestMapping("/create")
-	public String create(String info) {
+	public String create(String strProject,String strWorkLoad) {
 		
-		Project entity = new Project();
-		entity = JSONObject.parseObject(info,entity.getClass());
-		projectService.insert(entity);
+		Project project = new Project();
+		project = JSONObject.parseObject(strProject,project.getClass());
+		projectService.insert(project);
 		return "ok";
 	}
 	

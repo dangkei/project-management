@@ -23,59 +23,61 @@ import com.bgp.project.mapper.ProjectMapper;
  *
  */
 @Service
-public class ProjectService extends ServiceImpl<ProjectMapper,Project>{
+public class ProjectService extends ServiceImpl<ProjectMapper, Project> {
 	@Autowired
 	ProjectMapper projectMapper;
-	
+
 	public int insert(Project project) {
 		return projectMapper.insert(project);
 	}
 
 	public int deleteBatch(String ids) {
-		if(StringUtils.isBlank(ids)) {
+		if (StringUtils.isBlank(ids)) {
 			return -1;
 		}
 		List<String> list = new ArrayList<String>();
-		list = JSONObject.parseArray(ids,String.class);
+		list = JSONObject.parseArray(ids, String.class);
 		return projectMapper.deleteBatchIds(list);
 	}
-	
+
 	public int update(Project project) {
 		return projectMapper.updateById(project);
 	}
-	
+
 	public Project selectOne(String id) {
 		return projectMapper.selectById(id);
 	}
-	
+
 	public int deleteBatch1(String ids) {
 		StringBuilder sb = new StringBuilder(ids);
-		sb.deleteCharAt(0).deleteCharAt(sb.length()-1);
-		return projectMapper.deleteBatchIds(null); //projectMapper.deleteBatch(sb.toString());
+		sb.deleteCharAt(0).deleteCharAt(sb.length() - 1);
+		return projectMapper.deleteBatchIds(null); // projectMapper.deleteBatch(sb.toString());
 	}
-	
+
 	public int updateOne(Project report) {
 		return projectMapper.updateById(report);
 	}
-	
+
 	public Project selectOne(int id) {
-		return  projectMapper.selectById(id);
+		return projectMapper.selectById(id);
 	}
-	
-	public List<Project> getProjectList(int page,int limit){
+
+	public List<Project> getProjectList(int page, int limit) {
 		return projectMapper.selectList(null);
 	}
-	
-	public DataTable getProjectListByPage(int page,int limit){
+
+	public DataTable getProjectListByPage(int page, int limit) {
+		// EntityWrapper<Project> wrapper1 = new EntityWrapper<Project>;
 		QueryWrapper<Project> wrapper = new QueryWrapper<>();
-	    wrapper.isNotNull("id");
-	    Page<Project> oPage = new Page<>(page,limit);
-	    Page<Project> result = projectMapper.selectPage(oPage, wrapper);
+		wrapper.orderByDesc("create_time");
+		wrapper.isNotNull("id");
+		Page<Project> oPage = new Page<>(page, limit);
+		Page<Project> result = projectMapper.selectPage(oPage, wrapper);
 		DataTable table = new DataTable();
 		table.setCount(result.getTotal());
 		Object[] data = result.getRecords().toArray();
 		table.setData(data);
 		return table;
 	}
-	
+
 }
