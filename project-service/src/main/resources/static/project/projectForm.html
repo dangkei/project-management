@@ -286,15 +286,15 @@
   //提交事件
   // form.on('submit(saveBtn)', function(data){
   layui.$('#LAY-component-form-setval').on('click', function(data){
-   	    var data = form.val('workloadForm');
-	    alert(JSON.stringify(data));
-		layer.alert(JSON.stringify(data.field), {
-      		title: '最终的提交信息'
-    	})
+	  debugger
+   	    var project = form.val('projectForm');
+	    alert(JSON.stringify(project));
+	    var workLoad = form.val('workloadForm');
+	    alert(JSON.stringify(workLoad));
 		var url= "/project/update";
 		var obj={};
-		//data.field.id = null;
-		obj.info = JSON.stringify(data.field);
+		obj.project = JSON.stringify(project);
+		obj.workLoad = JSON.stringify(workLoad);
 		//layer.msg(obj.info);
 		$.post(url,obj,function(msg){
 			if(msg=="ok"){

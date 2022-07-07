@@ -105,13 +105,13 @@
 			</div>
 		</div>
 
-		<div class="layui-body">
-			<!-- 内容主体区域 -->
-			<div class="layui-tab layui-tab-card" lay-filter="demo" lay-allowclose="true" style="margin:1px">
+		<div class="layui-body" style="margin:1px">
+			<!-- 内容主体区域 --> 
+			<div class="layui-tab layui-tab-card" lay-filter="demo" lay-allowclose="true" style="bottom:1px">
               <ul class="layui-tab-title">
              <!--   <li class="layui-this">角色管理</li>-->
               </ul>
-              <div class="layui-tab-content" style="height: 90%;">
+              <div class="layui-tab-content" style="height: 90%;margin-bottom:50px">
                 <!--<div class="layui-tab-item">
                     <iframe  style="width: 100%;height: 100%;" scrolling="no" src="/report/reportList.html" ></iframe>
                 </div>-->
@@ -152,7 +152,7 @@
 //                      alert("遍历的没有相同tab："+mytitle);
                       element.tabAdd('demo', {
                         title:mytitle //用于演示
-                        ,content: '<iframe style="width: 100%;height: 600px;" scrolling="no" src='+htmlurl+' ></iframe>'
+                        ,content: '<iframe style="width: 100%;height:650px;" scrolling="no" src='+htmlurl+' onload="this.height=100"></iframe>'
                         ,id: mytitle //实际使用一般是规定好的id，这里以时间戳模拟下
                       })
                       element.tabChange('demo', mytitle); //切换到当前点击的页面
