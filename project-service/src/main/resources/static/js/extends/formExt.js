@@ -2,11 +2,11 @@
 layui.define(['form','layer'],function(exports){ //提示：模块也可以依赖其它模块，如：layui.define('layer', callback);
   var obj = {
     
-    getFormValJSON("formName"){
+    getFormValJSON:function(form){
 		JSON.stringify(form);
-	}
+	},
     
-    hello: function(str){
+    hello: function(form){
     //如果str为空的话，弹出“Hello index”
       alert('Hello '+ (str||'index'));
     }

@@ -34,7 +34,10 @@ public class ProjectController {
 		
 		Project project = new Project();
 		project = JSONObject.parseObject(strProject,project.getClass());
-		projectService.insert(project);
+		WorkLoad workLoad = new WorkLoad();
+		workLoad = JSONObject.parseObject(strWorkLoad,workLoad.getClass());
+		int id = projectService.insert(project);
+		//workLoadService
 		return "ok";
 	}
 	

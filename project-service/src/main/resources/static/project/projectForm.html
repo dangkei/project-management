@@ -134,7 +134,7 @@
     <div class="layui-form layui-colla-content">
 	<form class="layui-form layui-form-pane" action="" lay-filter="workloadForm">
 	  <div class="layui-form-item">
-		<input type="hidded" name="id" autocomplete="off" class="layui-input">
+		<input type="hidden" name="id" autocomplete="off" class="layui-input">
 	  	<div class="layui-inline">
 	      <label class="layui-form-label">设计测线条数</label>
 	      <div class="layui-input-inline">
@@ -245,7 +245,7 @@
     <div class="layui-input-block">
       <!--<button type="button" class="layui-btn layui-btn-normal" id="LAY-component-form-setval">赋值</button>-->
       <button type="submit" style="display:none" lay-submit="" class="layui-btn layui-btn-normal" id="LAY-component-form-setval"  lay-filter="saveBtn">保存</button>
-      <button type="submit" class="layui-btn" lay-submit="" id="LAY-component-form-submit" lay-filter="demo1">创建立项</button>
+      <button type="submit" class="layui-btn" lay-submit="" id="LAY-component-form-submit" lay-filter="create">创建立项</button>
     </div>
 </div>
 
@@ -253,6 +253,17 @@
 <script src="/js/layui/layui.js"></script>
 
 <script>
+layui.config({
+  base: 'http://localhost:8081/js/extends/' //假设这是你存放拓展模块的根目录
+}).extend({ 
+  formExt: 'formExt' //mymod表示index文件中定义的模块名字，index表示的是模块文件，不需要js后缀
+});
+//使用拓展模块
+layui.use(['formExt'], function(){
+  var formExt = layui.formExt;
+  //formExt.hello('World!'); //弹出 Hello World!
+});
+
  layui.use(['form','layer', 'layedit', 'laydate'], function(){
   var form = layui.form
   ,layer = layui.layer
@@ -327,15 +338,13 @@
   });
  
   //提交事件
-  form.on('submit(demo1)', function(data){
-		/*layer.alert(JSON.stringify(data.field), {
-      		title: '最终的提交信息'
-    	})*/
-		var url= "/project/create";
+  form.on('submit(create)', function(data){
+		var project = form.val('projectForm');
+		var workLoad = form.val('workloadForm');
 		var obj={};
-		//data.field.id = null;
-		obj.info = JSON.stringify(data.field);
-		//layer.msg(obj.info);
+		obj.strProject = JSON.stringify(project);
+		obj.strWorkLoad = JSON.stringify(workLoad);
+		var url= "/project/create";
 		$.post(url,obj,function(msg){
 			if(msg=="ok"){
 				layer.confirm('立项成功！', {
