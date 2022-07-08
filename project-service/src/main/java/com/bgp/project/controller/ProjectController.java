@@ -3,8 +3,6 @@
  */
 package com.bgp.project.controller;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.bgp.common.page.DataTable;
 import com.bgp.project.entity.Project;
+import com.bgp.project.entity.WorkLoad;
 import com.bgp.project.service.ProjectService;
+import com.bgp.project.service.WorkLoadService;
 
 /**
  * @author Administrator
@@ -27,6 +26,8 @@ public class ProjectController {
 		
 	@Autowired 
 	ProjectService projectService;
+	@Autowired 
+	WorkLoadService workLoadService;
 	
 	@RequestMapping("/create")
 	public String create(String strProject,String strWorkLoad) {
@@ -45,10 +46,12 @@ public class ProjectController {
 	}
 	
 	@RequestMapping("/update")
-	public String update(String info) {
+	public String update(String project,String workLoad) {
 		
 		Project entity = new Project();
-		entity = JSONObject.parseObject(info,entity.getClass());
+		entity = JSONObject.parseObject(project,entity.getClass());
+		WorkLoad workload = new WorkLoad();
+		workload = JSONObject.parseObject(workLoad,workload.getClass());
 		projectService.update(entity);
 		return "ok";
 	}
