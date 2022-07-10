@@ -28,7 +28,6 @@ public class ProjectController {
 	ProjectService projectService;
 	@Autowired 
 	WorkLoadService workLoadService;
-	
 	@RequestMapping("/create")
 	public String create(String strProject,String strWorkLoad) {
 		
@@ -36,8 +35,9 @@ public class ProjectController {
 		project = JSONObject.parseObject(strProject,project.getClass());
 		WorkLoad workLoad = new WorkLoad();
 		workLoad = JSONObject.parseObject(strWorkLoad,workLoad.getClass());
-		int id = projectService.insert(project);
-		//workLoadService
+		projectService.insert(project);
+		workLoad.setProject_id(project.getId());
+		workLoadService.insert(workLoad);
 		return "ok";
 	}
 	
@@ -56,6 +56,7 @@ public class ProjectController {
 		WorkLoad workload = new WorkLoad();
 		workload = JSONObject.parseObject(workLoad,workload.getClass());
 		projectService.update(entity);
+		
 		return "ok";
 	}
 	

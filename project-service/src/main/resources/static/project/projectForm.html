@@ -310,8 +310,8 @@ layui.use(['formExt'], function(){
 	    alert(JSON.stringify(workLoad));
 		var url= "/project/update";
 		var obj={};
-		obj.project = JSON.stringify(project);
-		obj.workLoad = JSON.stringify(workLoad);
+		obj.strProject = JSON.stringify(project);
+		obj.strWorkLoad = JSON.stringify(workLoad);
 		//layer.msg(obj.info);
 		$.post(url,obj,function(msg){
 			if(msg=="ok"){
@@ -344,6 +344,7 @@ layui.use(['formExt'], function(){
 		var obj={};
 		obj.strProject = JSON.stringify(project);
 		obj.strWorkLoad = JSON.stringify(workLoad);
+		debugger
 		var url= "/project/create";
 		$.post(url,obj,function(msg){
 			if(msg=="ok"){

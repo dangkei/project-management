@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>report-service</artifactId>
-  <name>report</name>
+  <name>report-service</name>
   <description>project report service</description>
   
   <parent>
