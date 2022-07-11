@@ -13,7 +13,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.bgp.common.page.DataTable;
+import com.bgp.common.vo.DataTable;
 import com.bgp.report.entity.DailyReport;
 import com.bgp.report.mapper.DailyReportMapper;
 

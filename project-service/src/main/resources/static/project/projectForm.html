@@ -132,7 +132,7 @@
   <div class="layui-colla-item">
     <h1 class="layui-colla-title">项目工作量</h2>
     <div class="layui-form layui-colla-content">
-	<form class="layui-form layui-form-pane" action="" lay-filter="workloadForm">
+	<form class="layui-form layui-form-pane" action="" lay-filter="workLoadForm">
 	  <div class="layui-form-item">
 		<input type="hidden" name="id" autocomplete="off" class="layui-input">
 	  	<div class="layui-inline">
@@ -305,9 +305,9 @@ layui.use(['formExt'], function(){
   layui.$('#LAY-component-form-setval').on('click', function(data){
 	  debugger
    	    var project = form.val('projectForm');
-	    alert(JSON.stringify(project));
-	    var workLoad = form.val('workloadForm');
-	    alert(JSON.stringify(workLoad));
+	    //alert(JSON.stringify(project));
+	    var workLoad = form.val('workLoadForm');
+	    //alert(JSON.stringify(workLoad));
 		var url= "/project/update";
 		var obj={};
 		obj.strProject = JSON.stringify(project);
@@ -370,7 +370,7 @@ layui.use(['formExt'], function(){
     return false;
   });
  
-  //});
+  
   //表单取值
   layui.$('#LAY-component-form-getval').on('click', function(){
     var data = form.val('projectForm');
@@ -378,7 +378,8 @@ layui.use(['formExt'], function(){
   });
   
   var getFormData =  function(id,callback){
-	  var url= "/project/selectOne";
+	  //var url= "/project/selectOne";
+	  var url= "/project/projectDetail";
 	  //console.log(callback);
 	  //alert(typeof(callback));
 	  var obj={};
@@ -406,7 +407,10 @@ layui.use(['formExt'], function(){
   }
   
   var setFormData = function(formName,data){
-	  form.val(formName,data);
+	  debugger
+	  //form.val(formName,data);
+	  form.val("projectForm",data.project);
+	  form.val("workLoadForm",data.workLoad);
   }
   
   var action = getQueryString("action");

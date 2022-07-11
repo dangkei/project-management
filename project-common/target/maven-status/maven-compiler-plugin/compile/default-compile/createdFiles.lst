@@ -1,4 +1,6 @@
+com\bgp\common\vo\DataTable.class
 com\bgp\common\annotation\Column.class
 com\bgp\common\annotation\Table.class
 com\bgp\common\entity\BaseEntity.class
-com\bgp\common\page\DataTable.class
+com\bgp\common\vo\ConditionVo.class
+com\bgp\common\sql\SearchUtil.class

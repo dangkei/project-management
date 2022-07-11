@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
-import com.bgp.common.page.DataTable;
+import com.bgp.common.vo.DataTable;
 import com.bgp.report.entity.DailyReport;
 import com.bgp.report.service.DailyReportService;
 

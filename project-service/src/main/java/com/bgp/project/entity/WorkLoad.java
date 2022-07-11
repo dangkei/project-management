@@ -27,8 +27,8 @@ public class WorkLoad extends BaseEntity{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@TableId(type = IdType.AUTO)
-	private Long id;
+	//@TableId(type = IdType.AUTO)
+	//private Long id;
 	
 	@TableField("project_id")
 	private Long project_id;
@@ -78,19 +78,7 @@ public class WorkLoad extends BaseEntity{
 	@TableField("total_source_gun_shots")
 	private long total_source_gun_shots;	//震源炮术
 
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	/**
 	 * @return the project_id

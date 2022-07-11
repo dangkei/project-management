@@ -1,13 +1,1 @@
-com\bgp\report\controller\PageController.class
-com\bgp\report\service\IDailyReportService.class
-com\bgp\report\entity\DailyReport.class
-com\bgp\report\annotation\Column.class
-com\bgp\report\annotation\Table.class
-com\bgp\report\DailyReportApplication.class
-com\bgp\report\config\MybatisPlusConfig.class
-com\bgp\report\common\ActionResult.class
-com\bgp\report\service\DailyReportService.class
-com\bgp\report\common\STATUS.class
-com\bgp\report\controller\ReportController.class
-com\bgp\report\interceptor\PageInterceptor.class
 com\bgp\report\mapper\DailyReportMapper.class

@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
-import com.bgp.common.page.DataTable;
+import com.bgp.common.vo.DataTable;
 import com.bgp.project.entity.Project;
+import com.bgp.project.entity.ProjectForm;
 import com.bgp.project.entity.WorkLoad;
 import com.bgp.project.service.ProjectService;
 import com.bgp.project.service.WorkLoadService;
@@ -48,15 +49,24 @@ public class ProjectController {
 		return projectService.selectOne(id);
 	}
 	
+	@RequestMapping("/projectDetail")
+	public ProjectForm getFormData(String id) {	
+		ProjectForm form = new ProjectForm();
+		Project project = projectService.selectOne(id);
+		form.setProject(project);
+		form.setWorkLoad(workLoadService.getOneByProjectId(project.getId()));
+		return form ;
+	}
+	
 	@RequestMapping("/update")
-	public String update(String project,String workLoad) {
+	public String update(String strProject,String strWorkLoad) {
 		
 		Project entity = new Project();
-		entity = JSONObject.parseObject(project,entity.getClass());
+		entity = JSONObject.parseObject(strProject,entity.getClass());
 		WorkLoad workload = new WorkLoad();
-		workload = JSONObject.parseObject(workLoad,workload.getClass());
+		workload = JSONObject.parseObject(strWorkLoad,workload.getClass());
 		projectService.update(entity);
-		
+		workLoadService.updateById(workload);
 		return "ok";
 	}
 	

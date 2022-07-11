@@ -1,8 +1,6 @@
 package com.bgp.project.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.bgp.common.annotation.Table;
 import com.bgp.common.entity.BaseEntity;
@@ -22,8 +20,8 @@ public class Project extends BaseEntity {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@TableId(type = IdType.AUTO)
-	private Long id;
+	//@TableId(type = IdType.AUTO)
+	//private Long id;
 	
 	@TableField("project_name")
 	private String projectName;
@@ -51,18 +49,7 @@ public class Project extends BaseEntity {
 	private String keyProgram;
 	@TableField("project_status")
 	private String projectStatus;
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
+
 	/**
 	 * @return the projectName
 	 */
