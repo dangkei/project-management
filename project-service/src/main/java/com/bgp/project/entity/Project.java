@@ -207,7 +207,7 @@ public class Project extends BaseEntity {
 	public void setKeyProgram(String keyProgram) {
 		this.keyProgram = keyProgram;
 	}
-	
+
 	
 	
 }

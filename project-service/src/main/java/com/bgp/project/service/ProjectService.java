@@ -6,7 +6,6 @@ package com.bgp.project.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
@@ -24,11 +23,9 @@ import com.bgp.project.mapper.ProjectMapper;
  */
 @Service
 public class ProjectService extends ServiceImpl<ProjectMapper, Project> {
-	@Autowired
-	ProjectMapper projectMapper;
 
 	public int insert(Project project) {
-		return projectMapper.insert(project);
+		return getBaseMapper().insert(project);
 	}
 
 	public int deleteBatch(String ids) {
@@ -37,33 +34,33 @@ public class ProjectService extends ServiceImpl<ProjectMapper, Project> {
 		}
 		List<String> list = new ArrayList<String>();
 		list = JSONObject.parseArray(ids, String.class);
-		return projectMapper.deleteBatchIds(list);
+		return getBaseMapper().deleteBatchIds(list);
 	}
 
 	public int update(Project project) {
-		return projectMapper.updateById(project);
+		return getBaseMapper().updateById(project);
 	}
 
 	public Project selectOne(String id) {
-		return projectMapper.selectById(id);
+		return getBaseMapper().selectById(id);
 	}
 
 	public int deleteBatch1(String ids) {
 		StringBuilder sb = new StringBuilder(ids);
 		sb.deleteCharAt(0).deleteCharAt(sb.length() - 1);
-		return projectMapper.deleteBatchIds(null); // projectMapper.deleteBatch(sb.toString());
+		return getBaseMapper().deleteBatchIds(null); // projectMapper.deleteBatch(sb.toString());
 	}
 
 	public int updateOne(Project report) {
-		return projectMapper.updateById(report);
+		return getBaseMapper().updateById(report);
 	}
 
 	public Project selectOne(int id) {
-		return projectMapper.selectById(id);
+		return getBaseMapper().selectById(id);
 	}
 
 	public List<Project> getProjectList(int page, int limit) {
-		return projectMapper.selectList(null);
+		return getBaseMapper().selectList(null);
 	}
 
 	public DataTable getProjectListByPage(int page, int limit) {
@@ -72,7 +69,7 @@ public class ProjectService extends ServiceImpl<ProjectMapper, Project> {
 		wrapper.orderByDesc("create_time");
 		wrapper.isNotNull("id");
 		Page<Project> oPage = new Page<>(page, limit);
-		Page<Project> result = projectMapper.selectPage(oPage, wrapper);
+		Page<Project> result = getBaseMapper().selectPage(oPage, wrapper);
 		DataTable table = new DataTable();
 		table.setCount(result.getTotal());
 		Object[] data = result.getRecords().toArray();

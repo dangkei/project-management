@@ -28,8 +28,8 @@ public class DailyReport extends BaseEntity{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Column("id")
-	private long id;
+	//@Column("id")
+	//private long id;
 	
 	@Column("report_date")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -76,14 +76,14 @@ public class DailyReport extends BaseEntity{
 	/**
 	 * @return the id
 	 */
-	public long getId() {
-		return id;
+	public Long getId() {
+		return super.getId();
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

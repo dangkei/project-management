@@ -3,9 +3,7 @@
  */
 package com.bgp.project.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.bgp.common.annotation.Table;
 import com.bgp.common.entity.BaseEntity;
@@ -25,73 +23,75 @@ import lombok.NoArgsConstructor;
 @TableName("tb_Workload")
 public class WorkLoad extends BaseEntity{
 	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
+
 	
 	//@TableId(type = IdType.AUTO)
-	//private Long id;
+	//private long id;
 	
 	@TableField("project_id")
-	private Long project_id;
+	private Long projectId;
 	
 	@TableField("type")
 	private String type;	//二维/三维
 	
 	@TableField("design_test_line_number")
-	private long design_test_line_number;		//设计测线条数
+	private long designTestLineNumber;		//设计测线条数
 	
 	@TableField("design_full_coverage_workload")
-	private long design_full_coverage_workload;	//设计满覆盖工作量
+	private long designFullCoverageWorkload;	//设计满覆盖工作量
 	
 	@TableField("length_of_design_data")
-	private long length_of_design_data;		//设计资料长度	
+	private long lengthOfDesignData;		//设计资料长度	
 	
 	@TableField("length_of_design_construction")
-	private long length_of_design_construction;	//设计施工长度
+	private long lengthOfDesignConstruction;	//设计施工长度
 	
 	@TableField("design_detection_points")
-	private long design_detection_points;		//设计检波点数
+	private long designDetectionPoints;		//设计检波点数
 	
-	@TableField("design_harness_numner")
-	private long design_harness_numner;		//设计线束数
+	@TableField("design_harness_number")
+	private long designHarnessNumber;		//设计线束数
 	
 	@TableField("design_full_coverage_area")
-	private long design_full_coverage_area;	//设计满覆盖工作面积
+	private long designFullCoverageArea;	//设计满覆盖工作面积
 	
 	@TableField("design_data_area")
-	private long design_data_area;			//设计资料面积
+	private long designDataArea;			//设计资料面积
 	
 	@TableField("design_construction_area")
-	private long design_construction_area;	//设计施工面积
+	private long designConstructionArea;	//设计施工面积
 	
 	@TableField("design_total_receiving_points")
-	private long design_total_receiving_points;//设计接收点总数
+	private long designTotalReceivingPoints;//设计接收点总数
 	
 	@TableField("total_desigin_total_shots")
-	private long total_desigin_total_shots; //设计总炮术
+	private long totalDesiginTotalShots; //设计总炮术
 	
 	@TableField("total_air_gun_shots")
-	private long total_air_gun_shots;  		//气枪炮术
+	private long totalAirGunShots;  		//气枪炮术
 	
 	@TableField("total_doub_gun_shots")
-	private long total_doub_gun_shots;		//并炮炮术
+	private long totalDoubGunShots;		//并炮炮术
 	
 	@TableField("total_source_gun_shots")
-	private long total_source_gun_shots;	//震源炮术
-
-
+	private long totalSourceGunShots;	//震源炮术
 
 	/**
-	 * @return the project_id
+	 * @return the projectId
 	 */
-	public Long getProject_id() {
-		return project_id;
+	public Long getProjectId() {
+		return projectId;
 	}
 
 	/**
-	 * @param project_id the project_id to set
+	 * @param projectId the projectId to set
 	 */
-	public void setProject_id(Long project_id) {
-		this.project_id = project_id;
+	public void setProjectId(Long projectId) {
+		this.projectId = projectId;
 	}
 
 	/**
@@ -109,201 +109,201 @@ public class WorkLoad extends BaseEntity{
 	}
 
 	/**
-	 * @return the design_test_line_number
+	 * @return the designTestLineNumber
 	 */
-	public long getDesign_test_line_number() {
-		return design_test_line_number;
+	public long getDesignTestLineNumber() {
+		return designTestLineNumber;
 	}
 
 	/**
-	 * @param design_test_line_number the design_test_line_number to set
+	 * @param designTestLineNumber the designTestLineNumber to set
 	 */
-	public void setDesign_test_line_number(long design_test_line_number) {
-		this.design_test_line_number = design_test_line_number;
+	public void setDesignTestLineNumber(long designTestLineNumber) {
+		this.designTestLineNumber = designTestLineNumber;
 	}
 
 	/**
-	 * @return the design_full_coverage_workload
+	 * @return the designFullCoverageWorkload
 	 */
-	public long getDesign_full_coverage_workload() {
-		return design_full_coverage_workload;
+	public long getDesignFullCoverageWorkload() {
+		return designFullCoverageWorkload;
 	}
 
 	/**
-	 * @param design_full_coverage_workload the design_full_coverage_workload to set
+	 * @param designFullCoverageWorkload the designFullCoverageWorkload to set
 	 */
-	public void setDesign_full_coverage_workload(long design_full_coverage_workload) {
-		this.design_full_coverage_workload = design_full_coverage_workload;
+	public void setDesignFullCoverageWorkload(long designFullCoverageWorkload) {
+		this.designFullCoverageWorkload = designFullCoverageWorkload;
 	}
 
 	/**
-	 * @return the length_of_design_data
+	 * @return the lengthOfDesignData
 	 */
-	public long getLength_of_design_data() {
-		return length_of_design_data;
+	public long getLengthOfDesignData() {
+		return lengthOfDesignData;
 	}
 
 	/**
-	 * @param length_of_design_data the length_of_design_data to set
+	 * @param lengthOfDesignData the lengthOfDesignData to set
 	 */
-	public void setLength_of_design_data(long length_of_design_data) {
-		this.length_of_design_data = length_of_design_data;
+	public void setLengthOfDesignData(long lengthOfDesignData) {
+		this.lengthOfDesignData = lengthOfDesignData;
 	}
 
 	/**
-	 * @return the length_of_design_construction
+	 * @return the lengthOfDesignConstruction
 	 */
-	public long getLength_of_design_construction() {
-		return length_of_design_construction;
+	public long getLengthOfDesignConstruction() {
+		return lengthOfDesignConstruction;
 	}
 
 	/**
-	 * @param length_of_design_construction the length_of_design_construction to set
+	 * @param lengthOfDesignConstruction the lengthOfDesignConstruction to set
 	 */
-	public void setLength_of_design_construction(long length_of_design_construction) {
-		this.length_of_design_construction = length_of_design_construction;
+	public void setLengthOfDesignConstruction(long lengthOfDesignConstruction) {
+		this.lengthOfDesignConstruction = lengthOfDesignConstruction;
 	}
 
 	/**
-	 * @return the design_detection_points
+	 * @return the designDetectionPoints
 	 */
-	public long getDesign_detection_points() {
-		return design_detection_points;
+	public long getDesignDetectionPoints() {
+		return designDetectionPoints;
 	}
 
 	/**
-	 * @param design_detection_points the design_detection_points to set
+	 * @param designDetectionPoints the designDetectionPoints to set
 	 */
-	public void setDesign_detection_points(long design_detection_points) {
-		this.design_detection_points = design_detection_points;
+	public void setDesignDetectionPoints(long designDetectionPoints) {
+		this.designDetectionPoints = designDetectionPoints;
 	}
 
 	/**
-	 * @return the design_full_coverage_area
+	 * @return the designHarnessNumber
 	 */
-	public long getDesign_full_coverage_area() {
-		return design_full_coverage_area;
+	public long getDesignHarnessNumber() {
+		return designHarnessNumber;
 	}
 
 	/**
-	 * @param design_full_coverage_area the design_full_coverage_area to set
+	 * @param designHarnessNumber the designHarnessNumber to set
 	 */
-	public void setDesign_full_coverage_area(long design_full_coverage_area) {
-		this.design_full_coverage_area = design_full_coverage_area;
+	public void setDesignHarnessNumber(long designHarnessNumber) {
+		this.designHarnessNumber = designHarnessNumber;
 	}
 
 	/**
-	 * @return the design_harness_numner
+	 * @return the designFullCoverageArea
 	 */
-	public long getDesign_harness_numner() {
-		return design_harness_numner;
+	public long getDesignFullCoverageArea() {
+		return designFullCoverageArea;
 	}
 
 	/**
-	 * @param design_harness_numner the design_harness_numner to set
+	 * @param designFullCoverageArea the designFullCoverageArea to set
 	 */
-	public void setDesign_harness_numner(long design_harness_numner) {
-		this.design_harness_numner = design_harness_numner;
+	public void setDesignFullCoverageArea(long designFullCoverageArea) {
+		this.designFullCoverageArea = designFullCoverageArea;
 	}
 
 	/**
-	 * @return the design_data_area
+	 * @return the designDataArea
 	 */
-	public long getDesign_data_area() {
-		return design_data_area;
+	public long getDesignDataArea() {
+		return designDataArea;
 	}
 
 	/**
-	 * @param design_data_area the design_data_area to set
+	 * @param designDataArea the designDataArea to set
 	 */
-	public void setDesign_data_area(long design_data_area) {
-		this.design_data_area = design_data_area;
+	public void setDesignDataArea(long designDataArea) {
+		this.designDataArea = designDataArea;
 	}
 
 	/**
-	 * @return the design_construction_area
+	 * @return the designConstructionArea
 	 */
-	public long getDesign_construction_area() {
-		return design_construction_area;
+	public long getDesignConstructionArea() {
+		return designConstructionArea;
 	}
 
 	/**
-	 * @param design_construction_area the design_construction_area to set
+	 * @param designConstructionArea the designConstructionArea to set
 	 */
-	public void setDesign_construction_area(long design_construction_area) {
-		this.design_construction_area = design_construction_area;
+	public void setDesignConstructionArea(long designConstructionArea) {
+		this.designConstructionArea = designConstructionArea;
 	}
 
 	/**
-	 * @return the design_total_receiving_points
+	 * @return the designTotalReceivingPoints
 	 */
-	public long getDesign_total_receiving_points() {
-		return design_total_receiving_points;
+	public long getDesignTotalReceivingPoints() {
+		return designTotalReceivingPoints;
 	}
 
 	/**
-	 * @param design_total_receiving_points the design_total_receiving_points to set
+	 * @param designTotalReceivingPoints the designTotalReceivingPoints to set
 	 */
-	public void setDesign_total_receiving_points(long design_total_receiving_points) {
-		this.design_total_receiving_points = design_total_receiving_points;
+	public void setDesignTotalReceivingPoints(long designTotalReceivingPoints) {
+		this.designTotalReceivingPoints = designTotalReceivingPoints;
 	}
 
 	/**
-	 * @return the total_desigin_total_shots
+	 * @return the totalDesiginTotalShots
 	 */
-	public long getTotal_desigin_total_shots() {
-		return total_desigin_total_shots;
+	public long getTotalDesiginTotalShots() {
+		return totalDesiginTotalShots;
 	}
 
 	/**
-	 * @param total_desigin_total_shots the total_desigin_total_shots to set
+	 * @param totalDesiginTotalShots the totalDesiginTotalShots to set
 	 */
-	public void setTotal_desigin_total_shots(long total_desigin_total_shots) {
-		this.total_desigin_total_shots = total_desigin_total_shots;
+	public void setTotalDesiginTotalShots(long totalDesiginTotalShots) {
+		this.totalDesiginTotalShots = totalDesiginTotalShots;
 	}
 
 	/**
-	 * @return the total_air_gun_shots
+	 * @return the totalAirGunShots
 	 */
-	public long getTotal_air_gun_shots() {
-		return total_air_gun_shots;
+	public long getTotalAirGunShots() {
+		return totalAirGunShots;
 	}
 
 	/**
-	 * @param total_air_gun_shots the total_air_gun_shots to set
+	 * @param totalAirGunShots the totalAirGunShots to set
 	 */
-	public void setTotal_air_gun_shots(long total_air_gun_shots) {
-		this.total_air_gun_shots = total_air_gun_shots;
+	public void setTotalAirGunShots(long totalAirGunShots) {
+		this.totalAirGunShots = totalAirGunShots;
 	}
 
 	/**
-	 * @return the total_doub_gun_shots
+	 * @return the totalDoubGunShots
 	 */
-	public long getTotal_doub_gun_shots() {
-		return total_doub_gun_shots;
+	public long getTotalDoubGunShots() {
+		return totalDoubGunShots;
 	}
 
 	/**
-	 * @param total_doub_gun_shots the total_doub_gun_shots to set
+	 * @param totalDoubGunShots the totalDoubGunShots to set
 	 */
-	public void setTotal_doub_gun_shots(long total_doub_gun_shots) {
-		this.total_doub_gun_shots = total_doub_gun_shots;
+	public void setTotalDoubGunShots(long totalDoubGunShots) {
+		this.totalDoubGunShots = totalDoubGunShots;
 	}
 
 	/**
-	 * @return the total_source_gun_shots
+	 * @return the totalSourceGunShots
 	 */
-	public long getTotal_source_gun_shots() {
-		return total_source_gun_shots;
+	public long getTotalSourceGunShots() {
+		return totalSourceGunShots;
 	}
 
 	/**
-	 * @param total_source_gun_shots the total_source_gun_shots to set
+	 * @param totalSourceGunShots the totalSourceGunShots to set
 	 */
-	public void setTotal_source_gun_shots(long total_source_gun_shots) {
-		this.total_source_gun_shots = total_source_gun_shots;
+	public void setTotalSourceGunShots(long totalSourceGunShots) {
+		this.totalSourceGunShots = totalSourceGunShots;
 	}
-	
+
 	
 	
 }

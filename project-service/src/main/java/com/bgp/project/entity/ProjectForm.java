@@ -7,11 +7,18 @@ import java.io.Serializable;
 
 /**
  * @author Administrator
+ * 
+ * 封装Project页面数据
  *
  */
 public class ProjectForm implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Project project;
 	WorkLoad workLoad;
+	WorkLoadPrice workLoadPrice;
 	/**
 	 * @return the project
 	 */
@@ -36,6 +43,20 @@ public class ProjectForm implements Serializable{
 	public void setWorkLoad(WorkLoad workLoad) {
 		this.workLoad = workLoad;
 	}
+	/**
+	 * @return the workLoadPrice
+	 */
+	public WorkLoadPrice getWorkLoadPrice() {
+		return workLoadPrice;
+	}
+	/**
+	 * @param workLoadPrice the workLoadPrice to set
+	 */
+	public void setWorkLoadPrice(WorkLoadPrice workLoadPrice) {
+		this.workLoadPrice = workLoadPrice;
+	}
+	
+	
 	
 	
 }
