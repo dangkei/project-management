@@ -35,22 +35,22 @@ public class WorkLoadPrice extends BaseEntity{
 	private String workLoadType;
 	
 	@TableField("price_per_kilometer_price")
-	private long pricePerKilometerPrice;  //每公里（二维）
+	private float pricePerKilometerPrice;  //每公里（二维）
 	
 	@TableField("per_square_kilometer_price")
-	private long perSquareKilometerPrice;  //每平方公里（三维）
+	private float perSquareKilometerPrice;  //每平方公里（三维）
 	
 	@TableField("arrange_and_lay_price")
-	private long arrangeAndLayPrice;  //排列布放
+	private float arrangeAndLayPrice;  //排列布放
 		
 	@TableField("daily_unit_price")
-	private long dailyUnitPrice;  //日费制单价
+	private float dailyUnitPrice;  //日费制单价
 	
 	@TableField("waiting_unit_price")
-	private long waitingUnitPrice;  //待工单价
+	private float waitingUnitPrice;  //待工单价
 	
 	@TableField("other_price")
-	private long otherPrice;
+	private float otherPrice;
 
 	/**
 	 * @return the projectId
@@ -83,84 +83,84 @@ public class WorkLoadPrice extends BaseEntity{
 	/**
 	 * @return the pricePerKilometerPrice
 	 */
-	public long getPricePerKilometerPrice() {
+	public float getPricePerKilometerPrice() {
 		return pricePerKilometerPrice;
 	}
 
 	/**
 	 * @param pricePerKilometerPrice the pricePerKilometerPrice to set
 	 */
-	public void setPricePerKilometerPrice(long pricePerKilometerPrice) {
+	public void setPricePerKilometerPrice(float pricePerKilometerPrice) {
 		this.pricePerKilometerPrice = pricePerKilometerPrice;
 	}
 
 	/**
 	 * @return the perSquareKilometerPrice
 	 */
-	public long getPerSquareKilometerPrice() {
+	public float getPerSquareKilometerPrice() {
 		return perSquareKilometerPrice;
 	}
 
 	/**
 	 * @param perSquareKilometerPrice the perSquareKilometerPrice to set
 	 */
-	public void setPerSquareKilometerPrice(long perSquareKilometerPrice) {
+	public void setPerSquareKilometerPrice(float perSquareKilometerPrice) {
 		this.perSquareKilometerPrice = perSquareKilometerPrice;
 	}
 
 	/**
 	 * @return the arrangeAndLayPrice
 	 */
-	public long getArrangeAndLayPrice() {
+	public float getArrangeAndLayPrice() {
 		return arrangeAndLayPrice;
 	}
 
 	/**
 	 * @param arrangeAndLayPrice the arrangeAndLayPrice to set
 	 */
-	public void setArrangeAndLayPrice(long arrangeAndLayPrice) {
+	public void setArrangeAndLayPrice(float arrangeAndLayPrice) {
 		this.arrangeAndLayPrice = arrangeAndLayPrice;
 	}
 
 	/**
 	 * @return the dailyUnitPrice
 	 */
-	public long getDailyUnitPrice() {
+	public float getDailyUnitPrice() {
 		return dailyUnitPrice;
 	}
 
 	/**
 	 * @param dailyUnitPrice the dailyUnitPrice to set
 	 */
-	public void setDailyUnitPrice(long dailyUnitPrice) {
+	public void setDailyUnitPrice(float dailyUnitPrice) {
 		this.dailyUnitPrice = dailyUnitPrice;
 	}
 
 	/**
 	 * @return the waitingUnitPrice
 	 */
-	public long getWaitingUnitPrice() {
+	public float getWaitingUnitPrice() {
 		return waitingUnitPrice;
 	}
 
 	/**
 	 * @param waitingUnitPrice the waitingUnitPrice to set
 	 */
-	public void setWaitingUnitPrice(long waitingUnitPrice) {
+	public void setWaitingUnitPrice(float waitingUnitPrice) {
 		this.waitingUnitPrice = waitingUnitPrice;
 	}
 
 	/**
 	 * @return the otherPrice
 	 */
-	public long getOtherPrice() {
+	public float getOtherPrice() {
 		return otherPrice;
 	}
 
 	/**
 	 * @param otherPrice the otherPrice to set
 	 */
-	public void setOtherPrice(long otherPrice) {
+	public void setOtherPrice(float otherPrice) {
 		this.otherPrice = otherPrice;
 	}
 	

@@ -42,13 +42,13 @@ public class WorkLoad extends BaseEntity{
 	private long designTestLineNumber;		//设计测线条数
 	
 	@TableField("design_full_coverage_workload")
-	private long designFullCoverageWorkload;	//设计满覆盖工作量
+	private float designFullCoverageWorkload;	//设计满覆盖工作量
 	
 	@TableField("length_of_design_data")
-	private long lengthOfDesignData;		//设计资料长度	
+	private float lengthOfDesignData;		//设计资料长度	
 	
 	@TableField("length_of_design_construction")
-	private long lengthOfDesignConstruction;	//设计施工长度
+	private float lengthOfDesignConstruction;	//设计施工长度
 	
 	@TableField("design_detection_points")
 	private long designDetectionPoints;		//设计检波点数
@@ -57,13 +57,13 @@ public class WorkLoad extends BaseEntity{
 	private long designHarnessNumber;		//设计线束数
 	
 	@TableField("design_full_coverage_area")
-	private long designFullCoverageArea;	//设计满覆盖工作面积
+	private float designFullCoverageArea;	//设计满覆盖工作面积
 	
 	@TableField("design_data_area")
-	private long designDataArea;			//设计资料面积
+	private float designDataArea;			//设计资料面积
 	
 	@TableField("design_construction_area")
-	private long designConstructionArea;	//设计施工面积
+	private float designConstructionArea;	//设计施工面积
 	
 	@TableField("design_total_receiving_points")
 	private long designTotalReceivingPoints;//设计接收点总数
@@ -123,24 +123,10 @@ public class WorkLoad extends BaseEntity{
 	}
 
 	/**
-	 * @return the designFullCoverageWorkload
-	 */
-	public long getDesignFullCoverageWorkload() {
-		return designFullCoverageWorkload;
-	}
-
-	/**
 	 * @param designFullCoverageWorkload the designFullCoverageWorkload to set
 	 */
 	public void setDesignFullCoverageWorkload(long designFullCoverageWorkload) {
 		this.designFullCoverageWorkload = designFullCoverageWorkload;
-	}
-
-	/**
-	 * @return the lengthOfDesignData
-	 */
-	public long getLengthOfDesignData() {
-		return lengthOfDesignData;
 	}
 
 	/**
@@ -150,12 +136,7 @@ public class WorkLoad extends BaseEntity{
 		this.lengthOfDesignData = lengthOfDesignData;
 	}
 
-	/**
-	 * @return the lengthOfDesignConstruction
-	 */
-	public long getLengthOfDesignConstruction() {
-		return lengthOfDesignConstruction;
-	}
+
 
 	/**
 	 * @param lengthOfDesignConstruction the lengthOfDesignConstruction to set
@@ -193,13 +174,6 @@ public class WorkLoad extends BaseEntity{
 	}
 
 	/**
-	 * @return the designFullCoverageArea
-	 */
-	public long getDesignFullCoverageArea() {
-		return designFullCoverageArea;
-	}
-
-	/**
 	 * @param designFullCoverageArea the designFullCoverageArea to set
 	 */
 	public void setDesignFullCoverageArea(long designFullCoverageArea) {
@@ -207,24 +181,10 @@ public class WorkLoad extends BaseEntity{
 	}
 
 	/**
-	 * @return the designDataArea
-	 */
-	public long getDesignDataArea() {
-		return designDataArea;
-	}
-
-	/**
 	 * @param designDataArea the designDataArea to set
 	 */
 	public void setDesignDataArea(long designDataArea) {
 		this.designDataArea = designDataArea;
-	}
-
-	/**
-	 * @return the designConstructionArea
-	 */
-	public long getDesignConstructionArea() {
-		return designConstructionArea;
 	}
 
 	/**
@@ -302,6 +262,48 @@ public class WorkLoad extends BaseEntity{
 	 */
 	public void setTotalSourceGunShots(long totalSourceGunShots) {
 		this.totalSourceGunShots = totalSourceGunShots;
+	}
+
+	/**
+	 * @param designFullCoverageWorkload the designFullCoverageWorkload to set
+	 */
+	public void setDesignFullCoverageWorkload(float designFullCoverageWorkload) {
+		this.designFullCoverageWorkload = designFullCoverageWorkload;
+	}
+
+	/**
+	 * @param lengthOfDesignData the lengthOfDesignData to set
+	 */
+	public void setLengthOfDesignData(float lengthOfDesignData) {
+		this.lengthOfDesignData = lengthOfDesignData;
+	}
+
+	/**
+	 * @param lengthOfDesignConstruction the lengthOfDesignConstruction to set
+	 */
+	public void setLengthOfDesignConstruction(float lengthOfDesignConstruction) {
+		this.lengthOfDesignConstruction = lengthOfDesignConstruction;
+	}
+
+	/**
+	 * @param designFullCoverageArea the designFullCoverageArea to set
+	 */
+	public void setDesignFullCoverageArea(float designFullCoverageArea) {
+		this.designFullCoverageArea = designFullCoverageArea;
+	}
+
+	/**
+	 * @param designDataArea the designDataArea to set
+	 */
+	public void setDesignDataArea(float designDataArea) {
+		this.designDataArea = designDataArea;
+	}
+
+	/**
+	 * @param designConstructionArea the designConstructionArea to set
+	 */
+	public void setDesignConstructionArea(float designConstructionArea) {
+		this.designConstructionArea = designConstructionArea;
 	}
 
 	
