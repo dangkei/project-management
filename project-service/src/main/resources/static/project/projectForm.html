@@ -17,7 +17,7 @@
     left: -1px;
 	}
 	  .layui-form-pane .layui-input-block {
-    margin-left: 180px;
+    margin-left: 170px;
     left: -1px;
 	}
   </style>
@@ -29,14 +29,14 @@
     <h1 class="layui-colla-title">项目基本信息</h2>
     <div class="layui-form layui-colla-content layui-show">
 	<form class="layui-form layui-form-pane" action="" lay-filter="projectForm">
-	  <div class="layui-form-item">
-		<input type="hidden" name="id" autocomplete="off" class="layui-input">
-	  	<div class="layui-inline">
-	      <label class="layui-form-label">项目名称</label>
-	      <div class="layui-input-inline">
-	        <input type="text" name="projectName" autocomplete="off" class="layui-input">
-	      </div>
+      <input type="hidden" name="id" autocomplete="off" class="layui-input">
+      <div class="layui-form-item">
+	    <label class="layui-form-label">项目名称</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="projectName" lay-verify="projectName" autocomplete="off" placeholder="请输入标题" class="layui-input">
 	    </div>
+	  </div>
+	  <div class="layui-form-item">
 	    <div class="layui-inline">
 	      <label class="layui-form-label">国家</label>
 	      <div class="layui-input-inline">
@@ -47,6 +47,12 @@
 	      <label class="layui-form-label">计划开工日期</label>
 	      <div class="layui-input-inline">
 	        <input type="text" name="planedStartDate" id="planedStartDate" autocomplete="off" class="layui-input">
+	      </div>
+	    </div>
+	    <div class="layui-inline">
+	      <label class="layui-form-label">所属年度</label>
+	      <div class="layui-input-inline">
+	        <input type="text" name="fYear" id="fYear" autocomplete="off" class="layui-input">
 	      </div>
 	    </div> 
 	  </div>
@@ -80,7 +86,7 @@
 	  	<div class="layui-inline">
 	      <label class="layui-form-label">勘探方法</label>
 	      <div class="layui-input-inline">
-	        <select name="explorationMethod" lay-filter="explorationMethod">
+	        <select name="explorationMethod" id="explorationMethod" lay-filter="explorationMethod">
 	        <option value=""></option>
 	        <option value="二维" selected>二维</option>
 	        <option value="三维" >三维</option>
@@ -232,8 +238,7 @@
 	    </div>
 	  </div>
 	</form>
-	</div>
-
+  </div>
   </div>
    <div class="layui-colla-item">
     <h2 class="layui-colla-title">项目单价</h2>
@@ -301,7 +306,7 @@
 
 <script>
 layui.config({
-  base: 'http://localhost:8081/js/extends/' //假设这是你存放拓展模块的根目录
+  base: '/js/extends/' //假设这是你存放拓展模块的根目录
 }).extend({ 
   formExt: 'formExt' //mymod表示index文件中定义的模块名字，index表示的是模块文件，不需要js后缀
 });
@@ -323,6 +328,10 @@ layui.use(['formExt'], function(){
   });
   laydate.render({
 	elem: '#planedEndDate'
+  });
+  laydate.render({
+	elem: '#fYear',
+	type: 'year'
   });
  
   //自定义验证规则
@@ -427,7 +436,6 @@ layui.use(['formExt'], function(){
   });
   
   var getFormData =  function(id,callback){
-	  //var url= "/project/selectOne";
 	  var url= "/project/projectDetail";
 	  var obj={};
 	  obj.id = id;
@@ -437,11 +445,10 @@ layui.use(['formExt'], function(){
 			}
 			return data;
 	  });
-	  //return false;
+
   }
   var setReportData =  function(data,callback){
 	  var url= "/project/updateOne";
-	  //alert(typeof(callback));
 	  var obj={};
 	  obj.id = id;
 	  $.post(url,obj,function(data){
@@ -450,11 +457,9 @@ layui.use(['formExt'], function(){
 			}
 			return data;
 	  });
-	  //return false;
   }
   
   var setFormData = function(formName,data){
-	  debugger
 	  //form.val(formName,data);
 	  form.val("projectForm",data.project);
 	  form.val("workLoadForm",data.workLoad);
@@ -490,7 +495,13 @@ layui.use(['formExt'], function(){
     });
   }
   
+  
+  form.on('select(explorationMethod)',function(data){
+	data.value=="二维"?function(){$(".three-dime").hide();$(".two-dime").show()}():
+	function(){$(".two-dime").hide();$(".three-dime").show();}();
 
+	});
+  
 });
 </script>
 

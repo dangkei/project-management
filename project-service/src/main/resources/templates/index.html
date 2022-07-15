@@ -161,16 +161,18 @@
                 
               };
               $(".leftdaohang").click(function(){
+            	var request=Math.random();
                 var type="tabAdd";
                 var othis = $(this);
-                var htmlurl=$(this).attr('data-url');
+                var htmlurl=$(this).attr('data-url')+"?r="+request;
                 var mytitle=$(this).attr('mytitle');
-                active[type] ? active[type].call(this, othis) : '';
+                //active[type] ? active[type].call(this, othis) : '';
+                active[type].call(this, othis);
               });
               
               element.tabAdd('demo', {
                         title:'项目概览' //用于演示
-                        ,content: '<iframe style="width: 100%;height: 600px;" scrolling="no" src='+'/overview/overview.html'+' ></iframe>'
+                        ,content: '<iframe style="width: 100%;height: 600px;" scrolling="no" src='+'/project/project_list.html'+' ></iframe>'
                         ,id: "日报管理" //实际使用一般是规定好的id，这里以时间戳模拟下
                       })
                       element.tabChange('demo', '日报管理'); //切换到当前点击的页面

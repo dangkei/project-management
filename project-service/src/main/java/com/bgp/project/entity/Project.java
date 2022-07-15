@@ -25,6 +25,8 @@ public class Project extends BaseEntity {
 	
 	@TableField("project_name")
 	private String projectName;
+	@TableField("fYear")
+	private int fYear;
 	@TableField("construction_method")
 	private String constructionMethod;
 	@TableField("exploration_method")
@@ -50,6 +52,8 @@ public class Project extends BaseEntity {
 	@TableField("project_status")
 	private String projectStatus;
 
+	
+	
 	/**
 	 * @return the projectName
 	 */
@@ -206,6 +210,18 @@ public class Project extends BaseEntity {
 	 */
 	public void setKeyProgram(String keyProgram) {
 		this.keyProgram = keyProgram;
+	}
+	/**
+	 * @return the fYear
+	 */
+	public int getfYear() {
+		return fYear;
+	}
+	/**
+	 * @param fYear the fYear to set
+	 */
+	public void setfYear(int fYear) {
+		this.fYear = fYear;
 	}
 
 	

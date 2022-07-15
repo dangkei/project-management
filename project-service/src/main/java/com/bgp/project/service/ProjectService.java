@@ -77,4 +77,17 @@ public class ProjectService extends ServiceImpl<ProjectMapper, Project> {
 		return table;
 	}
 
+	public DataTable getProjectApplyByPage(int page, int limit) {
+		// EntityWrapper<Project> wrapper1 = new EntityWrapper<Project>;
+		QueryWrapper<Project> wrapper = new QueryWrapper<>();
+		wrapper.orderByDesc("create_time");
+		wrapper.isNotNull("id");
+		Page<Project> oPage = new Page<>(page, limit);
+		Page<Project> result = getBaseMapper().selectPage(oPage, wrapper);
+		DataTable table = new DataTable();
+		table.setCount(result.getTotal());
+		Object[] data = result.getRecords().toArray();
+		table.setData(data);
+		return table;
+	}
 }

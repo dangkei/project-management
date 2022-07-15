@@ -19,9 +19,9 @@
 <div id="userPaging"></div>
 
 <script type="text/html" id="barDemo">
-  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
-  <a class="layui-btn layui-btn-xs" lay-event="more">更多 <i class="layui-icon layui-icon-down"></i></a>
-</script>
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">编辑</a>
+  <!--<a class="layui-btn layui-btn-xs" lay-event="more">更多 <i class="layui-icon layui-icon-down"></i></a>
+--></script>
 <script type="text/html" id="toolbarDemo">
   <div class="layui-btn-container">
     <button class="layui-btn layui-btn-sm" lay-event="add">新建项目</button>
@@ -40,7 +40,7 @@ var area = ['1024px', '380px'];
 var header = [ //表头
 	{type: 'checkbox', fixed: 'left'}
     ,{field: 'id', title: 'ID', width:50, sort: false, fixed: 'left', totalRowText: '合计：'}
-    ,{field: 'projectName', title: '项目名称', width:250}
+    ,{field: 'projectName', title: '项目名称', width:280}
     ,{field: 'projectStatus', title: '项目状态', width:120, sort: true, totalRow: true}
     ,{field: 'teamName', title: '施工队伍', width:120, totalRow: true}
     ,{field: 'clientName', title: '甲方单位', width:280, totalRow: true}
@@ -64,12 +64,7 @@ layui.use(function(){ //亦可加载特定模块：layui.use(['layer','laydate']
   ,slider = layui.slider //滑块
   ,dropdown = layui.dropdown //下拉菜单
   
-  //Tab 切换
-  element.on('tab(demo)', function(data){
-    layer.tips('切换了 '+ data.index +'：'+ this.innerHTML, this, {
-      tips: 1
-    });
-  });
+
   
   var objTable = table.render({
 	  	elem: '#reportTbl'
@@ -142,7 +137,8 @@ layui.use(function(){ //亦可加载特定模块：layui.use(['layer','laydate']
     var data = obj.data //获得当前行数据
     ,layEvent = obj.event; //获得 lay-event 对应的值
     if(layEvent === 'detail'){
-      layer.msg('查看操作');
+      //layer.msg('查看操作');
+      openForm(formUrl+"?open&action=edit&id="+data.id);
     } else if(layEvent === 'more'){
       //下拉菜单
       dropdown.render({

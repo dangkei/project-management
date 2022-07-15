@@ -102,4 +102,9 @@ public class ProjectController {
 	public DataTable getProjectListByPage(int page,int limit) {
 		return projectService.getProjectListByPage(page, limit);
 	}
+	
+	@RequestMapping("/getProjectInHandByPage")
+	public DataTable getProjectInHandByPage(int page,int limit) {
+		return projectService.getProjectListByPage(page, limit);
+	}
 }
