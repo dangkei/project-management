@@ -21,6 +21,8 @@
 <script type="text/html" id="barDemo">
   <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="view">查看</a>
   <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">概览</a>
+  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="fillIn">日报录入</a>
+
  <!--<a class="layui-btn layui-btn-xs" lay-event="more">更多 <i class="layui-icon layui-icon-down"></i></a>
  --></script>
 <script type="text/html" id="toolbarDemo">
@@ -60,7 +62,7 @@ var header = [ //表头
     ,{field: 'teamName', title: '队伍名称', width:120, totalRow: true}
     ,{field: 'planedStartDate', title: '开工日期', width:180, totalRow: true}
     ,{field: 'planedEndDate', title: '交工日期', width:180, totalRow: true}
-    ,{fixed: 'right', width: 150, align:'center', toolbar: '#barDemo'}
+    ,{fixed: 'right', width: 250, align:'center', toolbar: '#barDemo'}
 ];
 
 //加载模块  
